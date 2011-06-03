@@ -1,0 +1,67 @@
+<canvas title="Test Views">  
+  <import name="basic" src="basic"/>
+  
+  <class name="box" width="100" height="100" bgcolor="yellow" opacity="0.4">
+    
+    <simplelayout name="innerlayout" axis="x" spacing="1"/>
+    
+    <view width="30" height="30" bgcolor="red">
+      <handler on="mousedown">
+        if parent.innerlayout.spacing == 1:
+          parent.innerlayout.animate('spacing', 20, 0.07)
+        else:
+          parent.innerlayout.animate('spacing', 1, 0.07)
+      </handler>
+    </view>
+    
+    <view width="40" height="30" bgcolor="yellow">
+      <handler on="mousedown">
+        self.animate('opacity', 0.1, 1)
+      </handler>
+    </view>
+    
+    <handler on="mousedown">
+      if parent.l.spacing != 50:
+        parent.l.animate('spacing', 50, 0.07)
+      else:
+        parent.l.animate('spacing', 10, 0.07)
+    </handler>
+  </class>
+  
+  <class name="button"/>
+  
+  <class name="boxgroup" opacity="0.5">
+    <simplelayout name="l" axis="x" spacing="10"/>
+    
+    <button width="70" height="40" text="hi"/>
+  
+    <box bgcolor="red" opacity="0.2"/>
+    <box bgcolor="green" opacity="0.4"/>
+    <box bgcolor="blue" opacity="0.6"/>
+         
+    <box x="100" bgcolor="red" opacity="0.2"/>
+    <box x="100" bgcolor="green" opacity="0.4"/>
+    <box x="100" bgcolor="blue" opacity="0.6"/>
+         
+    <box x="200" bgcolor="red" opacity="0.2"/>
+    <box x="200" bgcolor="green" opacity="0.4"/>
+    <box x="200" bgcolor="blue" opacity="0.6"/>
+  </class>
+  
+  
+  <handler on="mousedown">
+    if outerlayout.spacing == 10:
+      outerlayout.animate('spacing', 50, 0.07)
+    else:
+      outerlayout.animate('spacing', 10, 0.07)
+  </handler>
+  
+  <simplelayout name="outerlayout" axis="y" spacing="10"/>
+  
+  <boxgroup/>
+  <boxgroup/>
+  <boxgroup/>
+  <boxgroup/>
+  <boxgroup/>
+
+</canvas>

@@ -1,0 +1,9 @@
+<canvas>
+  
+  <import src="builtins"/>
+    
+  <simplelayout axis="y" spacing="10"/>
+  <textbox name="yellowbox1" width="100" height="100" bgcolor="0xfff000"/>
+  <textbox name="yellowbox2" width="100" height="100" bgcolor="0xfff000"/>
+  
+</canvas>

@@ -1,0 +1,44 @@
+
+<canvas>
+
+  <import src="builtins"/>
+  <image name="bg" src="apps/images/background.jpg"/>
+  
+  <dataset id="ds">
+    <person name="bob" number="304-294-1924" color="red"/>
+    <person name="phil" number="276-265-1632" color="blue"/>
+    <person name="tom" number="246-025-1605" color="yellow"/>
+    <person name="josh" number="888-220-9457" color="green"/>
+    <person name="steven" number="233-973-5583" color="red"/>
+  </dataset>
+  
+  <view image="canvas.bg" opacity="0.6"/>
+  
+  <view>
+    <simplelayout axis="y" spacing="3"/>
+    <draggable/>
+    
+    <replicate over="canvas.ds.childNodes">
+      <rect>    
+        <simplelayout axis="x" spacing="10"/>
+        
+        <label fgcolor="${parent.data->parent.data.getAttribute('color')"  
+               text="${parent.data->parent.data.getAttribute('name')}">
+               
+            <handler on="init">
+              print parent.data.getAttribute('color')
+            </handler>
+            
+            <handler on="late">
+              print self.fgcolor
+            </handler>
+        </label>
+               
+        <label fgcolor="${parent.data->parent.data.getAttribute('color')"  
+               text="${parent.data->parent.data.getAttribute('number')}"/>
+      </rect>
+    </replicate>
+  </view>
+  
+</canvas>
+

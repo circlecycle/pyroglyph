@@ -1,0 +1,43 @@
+
+<canvas fullscreen="false" framerate="15">
+  
+  <!-- include classes from the builtins library -->
+  <import src="builtins"/>
+  
+  <font size="15" name="arial" src="./arial.ttf"/>
+  
+  <image name="norwaypic" src="/Users/jamesr/Downloads/norway_18.jpg"/>
+  
+  <class name="landscape" image="canvas.norwaypic" opacity="0.4">
+    <draggable/>
+    
+    <view bgcolor="white" width="${parent.width}" height="30"/>
+    <text font="arial" text="${parent.opacity->'opacity is %s'%parent.opacity}"/>
+      
+    <handler on="mousedown">
+      self.opacity = 0.8
+      self.bringToFront()
+    </handler>
+    
+    <handler on="mouseup">
+      self.opacity = 0.4
+    </handler>
+    
+  </class>
+  
+  <!-- display the background color of th' last clicked item  -->
+  <text name="currsel" fgcolor="black" text="hi there">
+    <handler on="focused" reference="canvas">
+      self.text = "Last clicked picture background color is "+`canvas.focused.bgcolor`
+    </handler>
+  </text>
+    
+  <landscape x="100" y="100"/>  
+  <landscape bgcolor="red"/>
+  <landscape bgcolor="green"/>
+  <landscape bgcolor="blue"/>
+    
+</canvas>
+
+
+

@@ -1,0 +1,24 @@
+<library>
+  <!-- primitive slider -->
+  
+  <class name="sliderT" y="100" bgcolor="white" opacity="0.3">
+      <attribute name="value" type="number" value="0"/>
+      <attribute name="scale" type="number" value="100"/>
+      
+      <view name="grabber" width="15" height="15" bgcolor="red">
+        <draggable axis="x"/>
+        <handler on="x">
+          parent.value = (self.x/parent.width)*parent.scale
+        </handler>
+      </view>
+      
+      <handler on="mouseup">
+          <![CDATA[
+            to = min(canvas.mousex-self.x, self.width)
+            if to < 0: to = 0
+            grabber.animate('x', to, 0.2)
+          ]]>
+      </handler>
+  </class>
+  
+</library>

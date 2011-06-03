@@ -1,0 +1,48 @@
+
+<canvas focusable="True" import="random" framerate="120">
+  
+  <import name="builtins" src="builtins"/>
+      
+  <!-- box to animate -->
+  <class name="box" 
+         focusable="False" width="30" height="30" bgcolor="red" opacity="0">
+         <view focusable="False" x="0" y="0" width="10" height="10" bgcolor="blue" opacity="0.3"/>
+         <view focusable="False" x="20" y="20" width="10" height="10" bgcolor="blue" opacity="0.3"/>  
+         <text text="${parent.x->'YO'+`int(parent.x)`}"/>
+  </class>
+  
+  <class name="splode" bgcolor="green" width="30" height="30">
+    <draggable/>
+    
+    <handler on="mousedown" reference="parent">
+      print "ajsdfkjahsdkh"
+    </handler>
+    
+    <attribute name="subboxes" value="[self.create('box') for x in range(5)]"/>
+    <attribute name="opening" value="True"/>
+    
+    <timer period="2" method="parent.toggle"/>
+    
+    <method name="toggle" args="val=False">
+      if opening:
+        [x.animate('x', random.randint(0,canvas.width-self.x), 2) for x in subboxes]
+        [x.animate('y', random.randint(0,canvas.height-self.y), 2) for x in subboxes]
+        [x.animate('opacity', 1, 2) for x in subboxes]
+      else:
+        [x.animate('x', 0, 2) for x in subboxes]
+        [x.animate('y', 0, 2) for x in subboxes]
+        [x.animate('opacity', 0, 2) for x in subboxes]
+      self.opening = not self.opening
+    </method>
+  </class>
+  
+  <simplelayout axis="y" spacing="50"/>
+  
+  <splode/>
+  <splode/>
+  
+  <handler on="init">
+    print canvas.width
+  </handler>
+
+</canvas> 

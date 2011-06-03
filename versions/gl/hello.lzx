@@ -1,0 +1,64 @@
+<!-- Copyright James Robey 3/3/08 circlecycle@gmail.com -->
+
+<!-- Every pyroglyph program starts with a <canvas>, defining one 'global' namespace of execution -->
+<canvas bgcolor="black">
+  
+  <!-- include the builtins librart components, and by calling it 'builtins' making it accessible as canvas.builtins
+       this is loaded from the 'lib' directory in the pyroglyph installation -->
+  <import name="builtins" src="builtins"/>
+    
+  <!-- create a image to use with views, basically to load images. A image is a picture in the format of jpg, 
+       png, gif, etc... the namespace it exists as here - canvas.bg - is a reference that 'image' attributes 
+       of views can use to reference this picture -->
+  <image name="bg" src="apps/images/background.jpg"/>
+  
+  <!-- use the view defined above - by virtue of the 'image' attribute - to display an image 
+       with a top-left at (0, 0) -->
+  <view image="parent.bg" opacity="0.4">
+    <draggable/>
+    <text fgcolor="white" text="Click to drag this box"/>
+    <handler on="init">
+      canvas.builtins.anim.osc(self, 'opacity', 0.01, 0.4, 5)
+    </handler>
+  </view>
+  
+  <!-- make a view that contains the text elements -->
+  <view name="textholder" y="100" width="${parent.width}">
+    
+    <!-- start osciallators on init to move position and spacing of the siblings -->
+    <handler on="init">
+      canvas.builtins.anim.osc(self, 'y', 1, 200, 5)
+      canvas.builtins.anim.osc(self.spacer, 'spacing', 20, 140, 3)
+    </handler>
+    
+    <!-- each view in this container will be laid 20px out from each other, and
+         the force attribute ensures that each element's height also equals 20px-->
+    <simplelayout name="spacer" force="True" spacing="20"/>
+    
+    <!-- script tags always get executed immediately in the namespace of the parent tag. 
+         here it's being used to initialize a welcome messsage to be replicated over -->
+    <script>
+      msg = [('Welcome to pyroglyph! Usage: run path/to/a/source/file',7, 'red'),
+            ('Contact circlycycle@gmail.com for more information', 5, 'blue'),
+            ('Press ESC to quit, resize using the lower right corner', 6, 'green'),
+            ("Constraint based programming at it's finest-",8, "white"),]
+    </script>
+    
+    <!-- make a text object for each item in msg (defined just above).
+         note that each child under the replicate tag
+         will have self.data set to the item of iteration in question -->
+    <replicate over="parent.msg">
+      <view>
+        <view width="${canvas.width}" height="${parent.height}" bgcolor="${parent.data->parent.data[2]}" opacity="0.3"/>
+        <text text="${parent.data->parent.data[0]}" fgcolor="white">
+          <handler on="init">
+            canvas.builtins.anim.osc(self, 'x', 3, 200, parent.data[1])
+            canvas.builtins.anim.osc(self, 'opacity', 0.5, 1, parent.data[1])
+          </handler>
+        </text>
+      </view>
+    </replicate>
+    
+  </view>
+  
+</canvas>

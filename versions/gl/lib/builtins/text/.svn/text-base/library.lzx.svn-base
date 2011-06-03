@@ -1,0 +1,50 @@
+<library import="pyglet, os">
+    
+    <!-- makes a one line field input -->
+    <class name="field">
+        <attribute name="font" type="string" value="Arial"/>
+        <attribute name="multiline" value="False"/>
+        <attribute name="text" type="string"/>
+        
+        <handler on="keydown" args="val">
+            <![CDATA[
+                if val[0] == pyglet.window.key.BACKSPACE:
+                    self.text = self.text[:-1]
+
+                elif val[0] == pyglet.window.key.ENTER:
+                    if self.multiline:  
+                        self.text += "\n"
+                    self.touch('enter')
+
+                elif val[0] < 255:
+                    if val[1] & pyglet.window.key.MOD_SHIFT:
+                        self.text += chr(val[0]).upper()
+                    else:
+                        self.text += chr(val[0])
+            ]]>
+        </handler>
+        
+        <!-- actual text object -->
+        <label name="txt" text="${parent.text}" font="${parent.font}"/>
+            
+        <!-- a static cursor to show at the end of a field -->
+        <rect name="cursor" visible="${parent.focus}" bgcolor="blue" opacity="0.8"
+              x="${parent.txt.width}" y="${parent.txt.height->parent.txt.height-self.height}"
+              width="2" height="$once{parent.txt.height}"/>
+    </class>
+    
+    <!-- makes multiline field input -->
+    <class name="textbox" extends="field" wrap="True" multiline="True"/>        
+    
+    <!-- makes a box that will execute commands and return the result. For play. -->
+    <class name="shellbox" extends="textbox">        
+        <handler on="enter">
+            <![CDATA[
+                fout = os.popen(txt.text + " 2>&1")
+                txt.text = "\n" + "".join(fout.readlines())
+                fout.close()
+            ]]>
+        </handler>
+    </class>
+
+</library>

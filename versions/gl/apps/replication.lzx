@@ -1,0 +1,47 @@
+
+<canvas import="time" framerate="10">
+  <import name="builtins" src="builtins"/>
+  
+  <comment>
+  <list name="mylist">
+    10, 20, 30, 40, 50, 60
+  </list>
+  
+  <dict name="mydict">
+    'one':    1, 
+    'two':    2, 
+    'three':  3,
+  </dict>
+  </comment>
+  
+  <simplelayout name="simplelayout" axis="y" spacing="5"/>
+  
+  <!-- title -->
+  <text height="20" text="The bars below are draggable. click the canvas to advance and update a second replicator"/>
+  
+  <!-- replication data -->
+  <script>
+    mylistA = [10, 20, 30, 40, 50, 60]
+    mylistB = ['hello', 'world', 'how', 'are', 'you', 65]
+  </script>
+  
+  <replicate name="rep1" over="canvas.mylistA" auto="False">
+    <view height="20" width="${canvas.width}" bgcolor="0x00f0f0" fgcolor="0x0000ff" opacity="0.4">
+      <draggable/>
+      <text height="20" x="${parent.data}" text="${parent.data}"/>
+    </view>
+  </replicate>
+
+  <view name="rep2" width="${canvas.width}" height="100" opacity="0.3" bgcolor="0x0000ff">
+    <simplelayout name="simplelayout" axis="y" spacing="5"/>
+    <draggable/>
+    
+    <replicate name="rep2" over="canvas.mylistB">
+      <text height="20" text="${self.data}"/>
+    </replicate>
+  </view>
+  
+  <handler on="mousedown">
+    self.rep1.over = [x+1 for x in self.rep1.over]
+  </handler>
+</canvas>

@@ -1,0 +1,95 @@
+
+<canvas title="Handlers Test" import="time, pyglet">
+  <!-- a collection class exposes methods to manipulate a list -->
+  
+  <include src="basic"/>
+  
+  <class name="collection" extends="node">
+    <attribute name="data" value="[]"/>
+    <method name="push" args="what">
+      self.data.append(what)
+    </method>
+  
+    <method name="pop">
+      return self.data.pop()
+    </method>
+  
+    <method name="get">
+      return self.data
+    </method>
+  </class>
+    
+  <class name="cool" width="10" height="10">
+      <!-- some subviews to go along  -->
+      <view x="10" bgcolor="0xff0000" width="10" height="10"/>
+      <view x="20" bgcolor="0x00ff00" width="10" height="10"/>
+  </class>
+  
+  <!--  show off inheritance -->
+  <class name="a1" width="10" height="10" bgcolor="red"/>
+  
+  <class name="a2" extends="a1" bgcolor="green">
+    <view bgcolor="black" width="50" height="2"/>
+  </class>
+  
+  <class name="a3" extends="a2" bgcolor="blue"/>
+  
+  <a1/>
+  <a2/>
+  <a3/>
+    
+  <handler name="oninit">
+    c = canvas.one.stuff
+    c.push(1)
+    c.push(2)
+    print c.get()
+    print c.pop()
+    print c.pop()
+  </handler>
+
+  <simplelayout name="yaxis" axis="y" spacing="20"/>
+  <simplelayout name="xaxis" axis="x" spacing="20"/>
+  
+  <cool name="one"> 
+    <!-- a collection is a list of items -->
+    <collection name="stuff"/>
+    <view x="30" bgcolor="0x0000ff" width="80" height="10"/>
+  </cool>
+  
+  <cool name="two"> 
+      <view x="30" bgcolor="0x0000ff" width="80" height="10"/>
+  </cool>
+  
+  <thread name="osc" args="what, attrname, start, end, dur">
+    <![CDATA[
+      #normalize start/end into low/high
+      low, high = min(start,end), max(start, end)
+
+      #floatify arguments
+      high, low, dur = float(high), float(low), float(dur)/2
+
+      #set up scale
+      if high-low <= 1: scale = 0.01
+      else:             scale = 1
+
+      #calulate delay and increment factors
+      delay = scale/((high-low)/dur)
+      inc = scale/dur
+
+      #set the object to the first given bound
+      what[attrname] = start
+
+      #and endlesly oscillate between the two values
+      while 1:
+        while 1:
+          what[attrname] += inc
+          if what[attrname] >= high: break
+          time.sleep(delay)
+        while 1:
+          what[attrname] -= inc
+          if what[attrname] <= low: break
+          time.sleep(delay)
+    ]]>
+  </thread>
+  
+</canvas>

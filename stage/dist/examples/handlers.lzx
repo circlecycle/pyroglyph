@@ -1,0 +1,21 @@
+<canvas foo="bar" title="Handlers Test">
+  
+  <handler name="oninit">
+    print "init received!"
+  </handler>
+  
+  <handler name="onfoo" args="val">
+    print "foo was changed to", val
+  </handler>
+  
+  <handler name="oninit" reference="canvas">
+     print "init recieved again!"
+  </handler>
+  
+  <script>
+    print "should be 'bar'"
+    print canvas.foo
+    print "should see a 'foo was changed to statement'"
+    canvas.foo = "CHANGED!"
+  </script>
+</canvas>

@@ -1,0 +1,26 @@
+<canvas>
+    
+    <!-- make a box that, when clicked on, animates itself a relative distance away -->
+    <class name="box" bgcolor="red" opacity="0.7" sizing="once">
+        <text name="label" text="hi there"/>
+        
+        <!-- when they click, animate the box -->
+        <handler on="mousedown">
+            self.animate('x', self.x+30, 0.5)
+            self.animate('y', self.y+30, 0.5)
+            self.animate('width', self.width+30, 0.5)
+            self.animate('height', self.height+30, 0.5)
+        </handler>
+        
+        <handler on="x">
+            self.label.text = int(self.x)
+        </handler>
+    </class>
+    
+    <!-- make four demo boxes -->
+    
+    <box name="b" x="30" y="40"/>
+    <box name="b" x="30" y="80"/>
+    <box name="b" x="30" y="120"/>
+    <box name="b" x="30" y="160"/>
+</canvas>

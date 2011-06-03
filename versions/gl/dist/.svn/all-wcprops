@@ -1,0 +1,17 @@
+K 25
+svn:wc:ra_dav:version-url
+V 28
+/svn/!svn/ver/148/trunk/dist
+END
+py2app.sh
+K 25
+svn:wc:ra_dav:version-url
+V 38
+/svn/!svn/ver/148/trunk/dist/py2app.sh
+END
+setup.py
+K 25
+svn:wc:ra_dav:version-url
+V 37
+/svn/!svn/ver/148/trunk/dist/setup.py
+END

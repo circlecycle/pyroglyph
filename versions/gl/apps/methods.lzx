@@ -1,0 +1,23 @@
+<canvas something="ok" width="640" height="480" title="Test Namespaces">
+  <!-- make some view structure -->
+  <view name="outer">
+    <method name="nottoplevel">
+      print "Not a toplevel method called"
+      print "should print 'outer'"
+      print self.name
+    </method>
+  </view>
+  
+  <method name="toplevel">
+    print "toplevel method called"
+    print "should print 'ok'"
+    print something
+  </method>
+  
+  <!-- this script will run last after everything above it has run -->
+  <script>
+    canvas.toplevel()
+    canvas.outer.nottoplevel()
+  </script>
+  
+</canvas>

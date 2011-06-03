@@ -1,0 +1,33 @@
+
+<canvas title="Handlers Test">
+    
+  <import src="builtins"/>
+ 
+  <class name="cool" width="10" height="10">
+      <view x="10" bgcolor="0xff0000" width="10" height="10"/>
+      <view x="20" bgcolor="0x00ff00" width="10" height="10"/>
+  </class>
+  
+  <!--  show off inheritance -->
+  <class name="a1" width="10" height="10" bgcolor="red"/>
+  
+  <class name="a2" extends="a1" bgcolor="green">
+    <view bgcolor="black" width="50" height="2"/>
+  </class>
+  
+  <class name="a3" extends="a2" bgcolor="blue"/>
+  
+  <class name="test">
+    <handler on="init">
+      print "yo"
+    </handler>
+  </class>
+  
+  <class name="a4" extends="a3, test"/>
+  
+  <a1/>
+  <a2 y="100"/>
+  <a3 y="200"/>
+  <a4 y="300"/>
+  
+</canvas>

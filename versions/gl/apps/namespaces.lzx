@@ -1,0 +1,31 @@
+<canvas something="ok" title="Test Namespaces">
+  <!-- make some view structure -->
+  <view name="outer">
+    <view id="foo" name="inner">
+      <method name="runtests">
+        print "Should all be 'inner':"
+        print self.name
+        print name
+        print canvas.outer.inner.name
+        print canvas.foo.name
+        
+        print "should be '1 1 2'"
+        self.a = 1
+        b = 2
+        print self.a, a, b
+      </method>
+    </view>
+  </view>
+  
+  <!-- this script will run last after everything above it has run -->
+  <script>
+    print "Should be 'ok':"
+    print self.something
+    print canvas.something
+    print something
+    
+    #run the other tests
+    canvas.foo.runtests()
+  </script>
+  
+</canvas>

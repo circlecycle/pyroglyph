@@ -1,0 +1,27 @@
+<canvas title="Test Views">
+  
+  <view x="150" y="150" width="100" height="100" opacity="0.4"/>
+  
+  <!-- make some view structure -->
+  <view width="10" height="10" bgcolor="0xff0000">
+    <view x="10" y="10" width="10" height="10" bgcolor="0x00ff00" >
+      <view x="10" y="10" width="10" height="10" bgcolor="0x0000ff"/>
+      <view x="7" y="5" width="10" height="10" bgcolor="0xff00ff" opacity="0.4"/>
+    </view>
+    
+    <handler on="mousedown">
+        print "down received"
+        self.x = 0
+        self.animate('x', 500, 1)
+    </handler>
+    
+    <handler on="mouseup">
+        print "up received"
+    </handler>
+  </view>
+  
+  <handler on="mousedown">
+    canvas.title = "foo"
+  </handler>
+
+</canvas>

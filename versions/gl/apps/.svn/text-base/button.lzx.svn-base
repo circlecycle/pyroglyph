@@ -1,0 +1,11 @@
+<canvas>
+  <import src="builtins"/>
+
+  <button text="I'm a button!">
+    <handler on="mousedown">
+      print "You clicked a button!"
+    </handler>
+  </button>
+</canvas>
+  
+    

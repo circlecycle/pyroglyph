@@ -1,0 +1,11 @@
+<canvas title="Tab Controls">
+  <import src="builtins"/>
+  <tabpane>
+    <tab title="test">
+      <text text="Data"/>
+      </tab>
+    <tab title="that">
+      <text text="Data2"/>
+      </tab>
+  </tabpane>
+</canvas>

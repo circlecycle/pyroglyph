@@ -1,0 +1,11 @@
+
+
+1) should scripts execute em masse (but in order and in context) just before the init event is sent for a given node (that is instead of right after it's encountered?)
+
+2) implement constraints ${x.y.z} and ${x.y.z->x.y.z*2}
+
+3) implement events compatibility (which are just attributes.. maybe not?)
+
+4) implement rudimentary datasets; expose it as a node with a .element object for the minidom attached; make extra attributes on the node for url retrivals and the like (and attributes for events to sync to as well)
+
+5) implement rudimentary replication; inside a replicate tag that acts like a class, for each sub element of the dom in a dataset make one type of class. Have this repeat on  

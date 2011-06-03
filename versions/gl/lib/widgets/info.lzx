@@ -1,0 +1,10 @@
+  
+  
+<library>
+  <simplelayout axis="y"/>
+  <text name="title" text="${canvas.title}"/>
+  <text text="${canvas.width}"/>
+  <text text="${canvas.height}"/>
+  <text text="${canvas.bgcolor}"/>
+  <text text="${canvas.framerate}"/>
+</library>

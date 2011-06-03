@@ -1,0 +1,55 @@
+8
+
+dir
+154
+https://pyroglyph.googlecode.com/svn/trunk/lib/basic
+https://pyroglyph.googlecode.com/svn
+
+
+
+2008-03-09T00:31:44.428024Z
+153
+circlecycle
+
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+d932db76-0143-0410-a790-ef44e93a75c3
+
+layouts
+dir
+
+library.lzx
+file
+201
+
+
+
+2008-05-20T17:27:07.000000Z
+fb16b5901e823e76be4331235362905f
+2008-06-01T19:00:23.872134Z
+201
+circlecycle
+
+anim
+dir
+
+text
+dir
+
+widgets
+dir
+
+window
+dir
+

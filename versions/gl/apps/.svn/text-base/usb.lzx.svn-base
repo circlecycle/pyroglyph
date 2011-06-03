@@ -1,0 +1,51 @@
+<canvas import="random">
+
+    <import name="builtins" src="builtins"/>
+    
+    <!-- the background -->
+    <view focusable="False">
+        <image name="metal" src="apps/images/brushedMetal1.jpg"/> 
+        <view focusable="False" image="parent.metal"/>
+    </view>
+    
+    <!-- primitive slider -->
+    <class name="slider" y="100" bgcolor="white" opacity="0.3">
+        <attribute name="value" type="number" value="0"/>
+        
+        <view name="grabber" width="15" height="15" bgcolor="red">
+          <draggable axis="x"/>
+          <handler on="x">
+            parent.value = (self.x+0.01)/10
+          </handler>
+        </view>
+        
+        <handler on="mouseup">
+            grabber.animate('x', canvas.mousex, 0.3)
+        </handler>
+    </class>
+    
+    <!-- make an adjustable-spaced listing of data -->
+    <view>
+      <script>
+        self.datafields = [('1', 'seashell1'),  ('22', 'chartreuse4'),  ('333', 'orange'), 
+                           ('4444', 'red'),     ('333', 'blue'),        ('22', 'green'), 
+                           ('1', 'LavenderBlush4')]
+      </script>
+      
+      <simplelayout name="simplelayout" axis="x" spacing="${canvas.offset.value}"/>
+      
+      <replicate over="${parent.datafields}">
+        <view bgcolor="${self.data->self.data[1]}">
+            <text text="${parent.data->parent.data[0]}"/>
+        </view>
+      </replicate>
+    </view>
+    
+    <slider name="offset" width="${canvas.width}"/>
+    
+</canvas>
+
+
+
+
+

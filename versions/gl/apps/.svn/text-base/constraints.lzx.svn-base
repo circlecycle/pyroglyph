@@ -1,0 +1,12 @@
+<canvas title="Test Constraints">
+  
+  <!-- TODO - ALLOW ONE ATTR DEPENDANCY (NO NEED OF 'SELF' AKA) -->
+  <!-- SHOW HOW TO USE METHOD FOR CONSTRAINT PRETTIER -->
+  
+  <!-- doesn't fully work yet (order of operations of application of constraint resolution..) -->
+  
+  <view name="first" width="${parent.second.width->parent.second.width*2}" height="100" bgcolor="0xfff000"/>
+    
+  <view name="second" x="100" y="100" width="200" height="100" bgcolor="0x000fff"/>
+  
+</canvas>

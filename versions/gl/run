@@ -1,0 +1,37 @@
+#!/usr/bin/python
+
+#the pyroglyph module, copyright, James Robey, 2007
+#contact, circlecycle@gmail.com
+
+try:
+    import psyco
+    psyco.full()
+except:
+    pass
+
+import sys, bin
+
+### Default launch (read in the contents of a file)
+def main():
+  
+  #open the requested file - provide a default if none given
+  try:
+    if len(sys.argv) == 2: progtext = file(sys.argv[1]).read()
+    else:                  progtext = file('hello.lzx').read()
+  except:
+    print "ERROR: Unable to load the file: %s\n"%sys.argv[1]
+    sys.exit()
+  
+  #send the program text to the runtime. Nothing else will execute past this point.
+  bin.run(progtext)
+
+main()
+  
+  
+  
+  
+  
+
+
+  
+    

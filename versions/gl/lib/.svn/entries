@@ -1,0 +1,34 @@
+8
+
+dir
+205
+https://pyroglyph.googlecode.com/svn/trunk/lib
+https://pyroglyph.googlecode.com/svn
+
+
+
+2008-08-29T07:37:36.535018Z
+205
+circlecycle
+has-props
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+d932db76-0143-0410-a790-ef44e93a75c3
+
+widgets
+dir
+
+builtins
+dir
+

@@ -1,0 +1,157 @@
+
+### Pyglet imports
+from pyglet.gl import *
+from pyglet import clock, font, image, window
+from pyglet.window import key
+
+from xml.dom.minidom import parseString
+
+import time, xml, InitGL, Events, Nodes, Helpers
+
+#TODO: make this respect the node depth of the the node being added so that a layer approach can 
+#start taking shape. Right now the order of addition is the order of layering, and that's in the
+#order the xml is processed, not the order (perhaps) intended. It will be all sorted at somepoint
+class ViewBuffer:
+  """ view creation and deleteion events manipulate this buffer to have
+      references to drawable objects. Anything in this buffer will be 
+      evaluated and conditionally returned to RedrawViews or some other caller 
+  """
+  def __init__(self):
+    self.views = []
+  
+  #todo: unroll this loop into findViewsFromDOMInDepthOrder to lose the method calls
+  def scanDomForViews(self, root):
+    """
+    starting with the canvas, get a list of views from the DOM, 
+    updating those views' inherited and computed values on the way.
+    
+    return a list of tuple reresenting views that need to be drawn.
+    """
+    self.views = []
+    self.scanSubNodes(root.childViews)
+    return self.views
+    
+  def scanSubNodes(self, subnodes, dirty=False):
+    cw, ch = Nodes.canvas.width, Nodes.canvas.height
+    
+    try:
+      for v in subnodes: 
+        ns = v.__dict__
+        vp = v.parent 
+      
+        if vp:
+          #compute basic absolute attributes
+          ns['_absV'] = vp._absV and v.visible
+          ns['_absA'] = vp._absA * v.opacity
+          ns['_absX'] = v.x+vp._absX
+          ns['_absY'] = v.y+vp._absY
+        
+          #if not visible we are done with this and everything beneath it - optimization
+          if not v._absV or v._absA == 0 or v.x > cw or v.y > ch: 
+            continue
+        
+          #if a fgcolor isn't given use the parent's
+          if not v['fgcolor']:  ns['_absFC'] = vp._absFC
+          else:                 ns['_absFC'] = str(v['fgcolor'])
+
+        #or get the dimension values front and center!
+        x, y = v._absX, v._absY
+        a, w, h = v._absA, int(v.width), int(v.height)
+
+        #if the color is uncomputed on the node compute it
+        if v.bgcolor and type(v.bgcolor) != type(tuple()):
+          ns['bgcolor'] = Helpers.HTMLColorToRGB(v.bgcolor)
+        
+        #pass a tuple type through or init it
+        bgcolor = v.bgcolor
+        if len(bgcolor) == 3:
+          br, bg, bb = bgcolor
+        else:
+          br, bg, bb = (0, 0, 0)
+        
+        #if the values are different compute it out to a tuple again
+        if type(v._absFC) != type(tuple()):
+          ns['_absFC'] = Helpers.HTMLColorToRGB(v._absFC)
+        fr, fg, fb = v._absFC
+        
+        #register this view to a now z-ordered list of views to be rendered.
+        self.views.append((v, x, y, w, h, a, br, bg, bb, fr, fg, fb))
+
+        #add subviews to be recursed on
+        self.scanSubNodes(v.childViews)
+      
+    except Exception, msg:
+      raise str("\n"+("-"*60)+"\nIn the tag:\n"+v.toxml()+"\nError: "+`msg`)
+      
+    
+  def returnFocusedObject(self):
+    """ 
+    from the last computed list of views find which object
+    is under the current mouse position from the Events. x/y attrs
+    """
+    x, y = Nodes.canvas.mousex, Nodes.canvas.mousey
+    
+    #in _reverse_, for each view we encounter, test it. NOTE the three -1's yep that's how it works
+    for i in range(len(self.views)-1, -1, -1):
+      v = self.views[i][0]
+      
+      #enables the focusable keyword:
+      if not v.focusable: continue
+        
+      #if the event lies in it's x y and width and height then it's focused
+      vX, vY = v._absX, v._absY
+      if x >= vX  and x <= vX+v.width:
+        if y >= vY and y <= vY+v.height:
+          return v
+          
+    #or if none found return the canvas
+    return Nodes.canvas
+    
+
+def RedrawViews(dt=False):
+  global buffer
+  
+  #Clear The Screen And The Depth Buffer, reset the view
+  glClear(GL_COLOR_BUFFER_BIT)
+  glLoadIdentity()         
+  
+  ch = Nodes.canvas.height
+  
+  #for each view we have, draw a corresponding something on the screen
+  for entry in buffer.scanDomForViews(Nodes.canvas):
+    #extract goodies
+    v, x, y, w, h, a, br, bg, bb, fr, fg, fb = entry
+    
+    #if the view is transparent or it's outside of the canvas, don't draw it! saves time.
+    if v.transparent: continue 
+    
+    #adjust to "normalized" (flipped) y (blitted items are straight to buffer and must be flipped)
+    y, h = ch-y, -h
+      
+    # draw a square, which is a basic view, of course.
+    
+    if v._displaytype == 'view':        
+      #draw the requested rectangle
+      glRasterPos2d(x, y)
+      glColor4f(br, bg, bb, a)
+      glBegin(GL_QUADS)         
+      glVertex2f(x, y)
+      glVertex2f(x+w, y)
+      glVertex2f(x+w, y+h)
+      glVertex2f(x, y+h)
+      glEnd()   
+    
+      #if a image is attached, blit its texture onto the view; it will be tinted as the rectangle is
+      if v.image:
+        v._image.img.blit(x, 0-(v.height-y))
+      
+    # draw a text element using the pyglet framework from updated variables
+    if v._displaytype == 'text':        
+      v._txt.color = (fr, fg, fb, a)
+      v._txt.x, v._txt.y = x, y
+      v._txt.draw()
+      
+#make a singleton instance to use
+buffer = ViewBuffer()
+
+

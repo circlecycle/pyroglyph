@@ -1,0 +1,107 @@
+<canvas import="random" bgcolor="0xddddee">
+    
+    <!-- generate the minefield -->
+    <script>
+        #set up
+        gridsize = 20
+        maxmines = 40
+    
+        #generate the field..
+        mines = []
+        for x in range(gridsize):
+            mines.append([])
+            [mines[-1].append(0) for x in range(gridsize)]
+                
+        #.. and make some mines
+        for entry in range(maxmines):
+            x, y = random.randint(0, gridsize-1), random.randint(0, gridsize-1)
+            mines[x][y] = 1
+    </script>
+    
+    <!-- import useful library functions -->
+    <import src="builtins"/>
+    
+    <!-- load the picture for each cell of the minefield -->
+    <image name="box" src="apps/images/box.jpg"/>
+    
+    <!-- just showing off constraints, not otherwise used in this example -->
+    <text text="${canvas.focused->'Last clicked class: %s.'%(canvas.focused._classname)}"/>
+    
+    <!-- generate the grid -->
+    <view aligned="middle, center">
+        <simplelayout axis="y"/>
+        
+        <!-- for each row -->
+        <replicate over="canvas.mines">
+            <view>
+                <simplelayout axis="x"/>
+                
+                <!-- for each cell -->
+                <replicate over="parent.data">
+                    
+                    <!-- make the box with image and event handlers -->
+                    <view image="canvas.box">
+                        
+                        <!-- on init repopulate the minefield with references to the cells, not just '0', unless it's a mine -->
+                        <handler on="init">
+                            x, y = parent.getLayer(), self.getLayer()
+                            if canvas.mines[x][y] != 1: 
+                               canvas.mines[x][y] = self 
+                        </handler>
+                        
+                        <!-- on mousedown check to see if it's a bomb or we need to check neighbors for bomb count. -->
+                        <handler on="mousedown">
+                            x, y = parent.getLayer(), self.getLayer()
+                            
+                            if canvas.mines[x][y] == 1: 
+                                self.bgcolor = "red"
+                            else:                       
+                                self.getNeighbors()
+                        </handler>
+                        
+                        <!-- recursive function to reveal all neighbors that have zero bombs. Stop recursion if there are more then zero bombs. -->
+                        <method name="getNeighbors">
+                            <![CDATA[
+                                self.checked = True
+                                
+                                x, y = parent.getLayer(), self.getLayer()
+                                
+                                check = [(x-1, y-1), (x, y-1), (x+1, y-1),
+                                         (x-1, y),               (x+1, y),
+                                         (x-1, y+1), (x, y+1), (x+1, y+1)]
+                                         
+                                neighbors = [canvas.mines[x][y] 
+                                                for x, y in check 
+                                                    if x >= 0 and x < canvas.gridsize and y >= 0 and y < canvas.gridsize]
+                                 
+                                num = sum([1 for i in neighbors if i == 1]) or 0
+                                self.numbox.text = num or ''
+                                self.numbox.visible = True
+                                
+                                if num == 0:
+                                    midway = canvas.gridsize / 2
+                                    if y < midway:  toX = self.absx(0)
+                                    else:           toX = self.absx(canvas.width)
+                                    if x < midway:  toY = self.absy(0)
+                                    else:           toY = self.absy(canvas.height)
+                                    
+                                    time = random.random()*3
+                                    self.animate('x', toX, time)
+                                    self.animate('y', toY, time)  
+                                    self.animate('opacity', 0, time)
+                                      
+                                    [i.getNeighbors() for i in neighbors if i != 1 and not i['checked']]       
+                                else:
+                                    self.animate('opacity', 0.4, 1)
+                            ]]>
+                        </method>
+                        
+                        <!-- make a text label to show how many bombs this guy has. -->
+                        <label sizing="skip" name="numbox" visible="False" x="4" y="2"/>
+                    </view>
+                    
+                </replicate>
+            </view>
+        </replicate>
+    </view>
+</canvas>

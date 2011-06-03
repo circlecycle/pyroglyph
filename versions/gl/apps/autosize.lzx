@@ -1,0 +1,23 @@
+<canvas>  
+  <import name="builtins" src="builtins"/>
+  
+  <view name="one" bgcolor="red">
+    
+    <handler on="mousedown" reference="canvas">
+      self.box.animate('height', canvas.mousey, 1)
+      self.box.animate('width', canvas.mousex, 1)
+    </handler>
+    
+    <field name="two" text="hi there" traits="draggable">
+      <handler on="init">
+        print self.width, self.height
+      </handler>
+      <handler on="enter">
+        self.text = "Enter Pressed"
+      </handler>
+    </field>
+    
+    <view focusable="False" name="box" width="10" height="10" opacity="0.3" bgcolor="green"/>
+  </view>
+</canvas>
+  

@@ -1,0 +1,14 @@
+
+<canvas focusable="true">
+  
+  <include name="anim" src="basic/anim"/>
+  
+  <view name="box" x="10" y="10" width="30" height="30" bgcolor="red"/>
+  
+  <handler name="onmousedown">
+    box.x, box.y = canvas.mousex, canvas.mousey
+    canvas.anim.animate(box, 'x', box.x, 100, 1)
+    canvas.anim.animate(box, 'y', box.y, 100, 1)
+  </handler>
+  
+</canvas>

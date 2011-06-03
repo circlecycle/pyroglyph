@@ -1,0 +1,58 @@
+<canvas foo="bar" width="640" height="480" fullscreen="true" 
+        title="Demo PyroGlyph Application">
+  
+  <!-- make a class -->
+  <class name="myclass" x="0" y="0" width="20" height="100" bgcolor="0xff00ff">
+    <view x="20" y="150" width="20" height="50" bgcolor="0x00f0ff"/>
+  </class>
+  
+  <!-- works -->
+  <myclass/>
+  
+  <!-- make this override work (doesn't yet)... -->
+  <myclass x="200"/>
+  
+  <!-- make some view structure -->
+  <view id="yo" name="hi" width="10" height="10" x="10" y="10" bgcolor="0xff0000">
+    <view name="inner" x="10" y="10" width="20" height="20" bar="foo" silly="rabbit">
+      <!-- this script will run right away. self will point to this node -->
+      <method name="hello">
+        print self.name
+        print name
+        print "canvas?", canvas.yo.width
+      </method>
+      <script>
+        print "Silly %s"%self.silly
+        self.hello()
+      </script>
+    </view>
+  </view>
+  
+  <view name="there" width="10" height="10" x="30" y="10" bgcolor="0x00ff00">
+    <method name="changebg" args="bg">
+      a = [1,2,3,4,5]
+      print [x*x for x in a]
+      print "bg", bg
+      print 'selftest', self.name
+    </method>
+  </view>
+  
+  <view name="test" x="100" y="100" width="100" height="20"/>
+  
+  <method name="testmethod">
+    global canvas
+    a = [1,2,3,4,5]
+    print [x*x for x in a]
+    canvas.there.changebg("background color change")
+  </method>
+  
+  <!-- this script will run last after everything above it has run -->
+  <script>
+    print canvas.yo.width
+    print self.foo
+    print canvas.yo.inner.bar
+    print canvas.there.bgcolor
+    canvas.testmethod()
+  </script>
+  
+</canvas>

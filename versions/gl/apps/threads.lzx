@@ -1,0 +1,163 @@
+<canvas title="Handlers Test" import="time, math" fullscreen="false" bgcolor="black"> 
+  
+  <!-- includes we need (name is optional! depends on whether you need
+       access, or just the class definitions -->
+  <import name="builtins" src="builtins"/>
+  
+  <!-- <font name="myfont" size='8' height="16"/> -->
+    
+  <class name="collection" extends="node">
+    <attribute name="data" value="[]"/>
+    <method name="push" args="what">
+      self.data.append(what)
+    </method>
+    
+    <method name="pop">
+      return self.data.pop()
+    </method>
+    
+    <method name="get">
+      return self.data
+    </method>
+  </class>
+    
+  <class name="cool" bgcolor="blue" width="10" height="10">
+    <view x="10" bgcolor="green" width="10" height="10"/>
+    <view x="20" bgcolor="red" width="10" height="10"/>
+  </class>
+  
+  <class name="dragtextbox">
+    <simplelayout axis="y"/>
+  
+    <text name="txt" fgcolor="white" width="${parent.width}" text="Drag this to drag window">
+      <draggable target="parent.parent"/>
+    </text>
+
+    <textbox y="20" name="box" width="${parent.width}" height="80" bgcolor="black" fgcolor="white" opacity="0.7"/>
+  </class>
+  
+  <class name="squared" extends="view">
+    <handler on="init">
+      canvas.builtins.anim.osc(xaxis, 'spacing', -20, 20, 4)
+    </handler>
+    
+    <simplelayout name="xaxis" axis="x" spacing="0"/>
+    
+    <view width="10" height="10" bgcolor="red"/>
+    <view width="10" height="10" bgcolor="green"/>
+    <view width="10" height="10" bgcolor="blue"/>
+    <view width="10" height="10" bgcolor="black"/>
+    <view width="10" height="10" bgcolor="white"/>
+    <view width="10" height="10" bgcolor="gray"/>
+    <view width="10" height="10" bgcolor="red"/>
+    <view width="10" height="10" bgcolor="green"/>
+    <view width="10" height="10" bgcolor="blue"/>
+    <view width="10" height="10" bgcolor="black"/>
+    <view width="10" height="10" bgcolor="white"/>
+    <view width="10" height="10" bgcolor="gray"/>
+    <view width="10" height="10" bgcolor="red"/>
+    <view width="10" height="10" bgcolor="green"/>
+    <view width="10" height="10" bgcolor="blue"/>
+    <view width="10" height="10" bgcolor="black"/>
+    <view width="10" height="10" bgcolor="white"/>
+    <view width="10" height="10" bgcolor="gray"/>
+    <view width="10" height="10" bgcolor="red"/>
+    <view width="10" height="10" bgcolor="green"/>
+    <view width="10" height="10" bgcolor="blue"/>
+    <view width="10" height="10" bgcolor="black"/>
+    <view width="10" height="10" bgcolor="white"/>
+    <view width="10" height="10" bgcolor="gray"/>
+    <view width="10" height="10" bgcolor="red"/>
+    <view width="10" height="10" bgcolor="green"/>
+    <view width="10" height="10" bgcolor="blue"/>
+  </class>
+
+  <!-- a collection is a list of items -->
+  <collection name="stuff">
+    <handler on="init">
+      self.push(1)
+      self.push(2)
+      print self.get()
+      print self.pop()
+      print self.pop()
+    </handler>
+  </collection>
+  
+  <cool x="80" y="20"> 
+      <view x="30" bgcolor="0xff00ff" width="10" height="10"/>
+  </cool>
+  
+  <!-- on init fire off calls to the animate thread for both boxes defined below -->
+  <handler on="init">
+    # make things pulse
+    self.builtins.anim.osc(canvas.ct, 'opacity', 0.01, 0.5, 2)
+    self.builtins.anim.osc(canvas.ct, 'y', 400, 100, 5)
+    self.builtins.anim.osc(canvas.ct, 'x', 100, 400, 4)
+    self.builtins.anim.osc(canvas.sidebar, 'opacity', 0.1, 0.5, 2)
+  </handler>
+  
+  <blueview x="0" y="${canvas.height->(canvas.height/2)-(self.height/2)}" width="${canvas.width}" height="200" opacity="0.3"/>
+  <blueview name="sidebar" x="${canvas.width->canvas.width-self.width}" y="0" width="20" height="${canvas.height}" opacity="0"/>
+  
+  <!-- make three views to animate -->
+  <view name="boxes" x="200" y="200">
+    <handler on="init">
+      #make things swoosh
+      canvas.builtins.anim.swirl(self.one, 0.02, 0.04)
+      canvas.builtins.anim.swirl(self.two, 0.03, 0.03)
+      canvas.builtins.anim.swirl(self.three, 0.04, 0.02)
+    </handler>
+    <view name="one" opacity="0.5" bgcolor="black"/>
+    <view name="two" opacity="0.5" bgcolor="black"/>
+    <view name="three" opacity="0.5" bgcolor="black"/>
+  </view>
+  
+  <!-- make a grid of squares -->
+  <view name="overload" x="300" y="400" bgcolor="0xffffff">
+    
+    <handler on="init">
+      canvas.builtins.anim.osc(self, 'x', 1, 400, 2)
+      canvas.builtins.anim.osc(self, 'y', 1, 400, 3)
+      canvas.builtins.anim.osc(self, 'opacity', 0.0, 0.8, 2)
+      canvas.builtins.anim.osc(yaxis, 'spacing', -100, 100, 2.5)
+      canvas.builtins.anim.osc(xaxis, 'spacing', -100, 100, 4)
+    </handler>
+    
+    <handler on="x">
+        canvas.status.one.text = int(self.x)
+        canvas.status.two.text = int(self.y)
+    </handler>
+    
+    <simplelayout name="yaxis" axis="y" spacing="10"/>
+    <simplelayout name="xaxis" axis="x" spacing="5"/>
+    
+    <squared/>
+    <squared/>
+    <squared/>
+  </view>
+  
+  <!-- a view that syncs to another (moving) view -->
+  <view name="ct" x="200" y="200" bgcolor="0xff0000" 
+                  height="${parent.boxes.one.height}" 
+                  width="${parent.boxes.one.width -> parent.boxes.one.width * 2}" 
+                  opacity="0.5"/>
+    
+  <!-- an info widget -->
+  <import name="info_widget" src="widgets/info.lzx"/>
+  
+  <view x="200" name="status" fgcolor="white">
+    <handler on="init">
+      canvas.builtins.anim.osc(self.l, 'spacing', 30, 90, 5)
+    </handler>
+    <simplelayout name="l" axis="y"/>
+    
+    <text text="System Stats"/>
+    <text name="one" bgcolor="black" opacity="0.7"/>
+    <text name="two" bgcolor="black" opacity="0.7"/>
+  </view>
+  
+  <dragtextbox name="d1" x="180" y="240" width="200"/>
+  <dragtextbox name="d2" x="400" y="300" width="400"/>
+  
+  <text x="${canvas.width->canvas.width-self.width}" width="100" text="Press ESC to exit"/>
+</canvas>

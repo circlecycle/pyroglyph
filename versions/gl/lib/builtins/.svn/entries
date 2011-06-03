@@ -1,0 +1,55 @@
+8
+
+dir
+205
+https://pyroglyph.googlecode.com/svn/trunk/lib/builtins
+https://pyroglyph.googlecode.com/svn
+
+
+
+2008-08-29T07:37:36.535018Z
+205
+circlecycle
+
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+d932db76-0143-0410-a790-ef44e93a75c3
+
+layouts
+dir
+
+library.lzx
+file
+
+
+
+
+2009-06-04T21:08:19.000000Z
+5ece133cc92be519de988519b7e7fef8
+2008-08-29T07:37:36.535018Z
+205
+circlecycle
+
+anim
+dir
+
+text
+dir
+
+widgets
+dir
+
+window
+dir
+

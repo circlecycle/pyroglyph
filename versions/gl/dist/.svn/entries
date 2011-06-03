@@ -1,0 +1,57 @@
+8
+
+dir
+205
+https://pyroglyph.googlecode.com/svn/trunk/dist
+https://pyroglyph.googlecode.com/svn
+
+
+
+2008-03-04T08:58:14.026433Z
+148
+circlecycle
+
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+d932db76-0143-0410-a790-ef44e93a75c3
+
+py2app.sh
+file
+
+
+
+
+2009-06-04T21:08:19.000000Z
+a8f557739c63f872304771830c750c58
+2008-03-03T01:57:41.299534Z
+144
+circlecycle
+has-props
+
+setup.py
+file
+
+
+
+
+2009-06-04T21:08:19.000000Z
+4ed0dfaae05e78ed2afbad6ee97827e4
+2008-03-03T01:57:41.299534Z
+144
+circlecycle
+has-props
+
+icons
+dir
+

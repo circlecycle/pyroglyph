@@ -1,0 +1,95 @@
+<library>
+  <!-- primitive slider -->
+  
+  <class name="sliderT" y="100" bgcolor="white" opacity="0.3">
+      <attribute name="value" type="number" value="0"/>
+      <attribute name="scale" type="number" value="100"/>
+      
+      <view name="grabber" width="15" height="15" bgcolor="red">
+        <draggable axis="x"/>
+        <handler on="x">
+          parent.value = (self.x/parent.width)*parent.scale
+        </handler>
+      </view>
+      
+      <handler on="mouseup">
+	<![CDATA[
+              to = min(canvas.mousex-self.x, self.width)
+              if to < 0: to = 0
+              grabber.animate('x', to, 0.2)
+              ]]>
+      </handler>
+  </class>
+
+  <!-- primitive Button - KCM -->
+  <!-- This needs alot more work and formatting, but it works. -->
+  <class name="button" bgcolor="blue" height="25" width="100">
+    <text text="${parent.text}">
+      <handler on="late">
+	<![CDATA[
+              #steal the parents mousedown method
+              #this might need to be updated in the future
+              try:
+                  self._handlers[u'mousedown'] = parent._handlers[u'mousedown']
+              except KeyError:
+                  pass
+              ]]>
+      </handler>
+    </text>
+  </class>  
+  
+  <!-- primitive tab pane - KCM -->
+  <!-- All we need to do to define a page, is use a view -->
+  <!-- It just makes more sense to use a tab tag instad -->
+  <class name="tab" extends="view"/>
+  
+  <!-- tabpane - KCM -->
+  <class name="tabpane">
+    <handler on="construct">
+      import bin.Basetags #get the class names
+      
+      self.tabs = [] #hold onto the tabs
+      for node in childNodes:
+          if isinstance(node,bin.Basetags.tab):
+              self.tabs.append(node)
+    </handler>
+    
+    <!-- update on late, could just as easily be in the handler -->
+    <method name="update">
+      import bin.Basetags #once again get the tabs
+      last_x = 0 #hold onto the start x for each new button
+      max_height = 0 #mark where to start the tabs on the y
+      start_y = 0 #mark where the buttons started
+
+      for node in self.childNodes:
+          if isinstance(node,bin.Basetags.button):
+              node.x = last_x #start each button at the proper x
+              last_x += node.width
+              if node.height > max_height: #mark the max button height
+                  start_y = node.y
+                  max_height = node.height
+
+      found = False #if we've found our first tab
+      for node in self.childNodes:
+          if isinstance(node,bin.Basetags.tab):
+              node.visible = not(found) #make all but the first visible
+              node.y = start_y + max_height #all starting at the same x
+              found = True #mark our first as found
+    </method>
+
+    <!-- Call the update method on late -->
+    <handler on="late" reference="parent">
+      self.update()
+    </handler>
+
+    <!-- replicate over the tabs -->
+    <replicate over="parent.tabs">
+      <button text="${data.title}">
+	<handler on="mousedown">
+	  for tab in parent.tabs:
+              tab.visible = (tab == data)
+	</handler>
+      </button>
+    </replicate>
+  </class>
+</library>

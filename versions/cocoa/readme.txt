@@ -1,0 +1,1 @@
+This is a python module - place it in the python site-packages directory and execute run.py

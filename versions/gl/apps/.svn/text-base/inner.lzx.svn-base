@@ -1,0 +1,21 @@
+
+<canvas>
+  <class name="foo">
+    <method name="somefunc">
+      print "func1"
+    </method>
+  </class>
+  
+  <foo name="one"/>
+  
+  <foo name="two">
+    <method name="somefunc">
+      print 'func2'
+    </method>
+  </foo>
+  
+  <handler on="init">
+    one.somefunc()
+    two.somefunc()
+  </handler>
+</canvas>

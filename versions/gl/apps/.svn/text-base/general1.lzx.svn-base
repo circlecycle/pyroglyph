@@ -1,0 +1,80 @@
+<canvas import="random">
+
+    <!-- include lzx standard libraries -->
+    <import src="builtins"/>
+    
+    <!-- load images -->
+    <image name="metal" src="apps/images/brushedMetal1.jpg"/>
+    <image name="ducks" src="apps/images/ducks.jpg"/>
+    
+    <!-- make a background (which is unclickable) -->
+    <rect image="canvas.metal"/>
+    
+    <!-- a class to demonstrate replication and behaviour -->
+    <class name="lister" bgcolor="yellow" opacity="0.5">
+
+        <!-- when the canvas is clicked, regenerate -->
+        <handler on="mousedown" reference="canvas">
+            self.regen()
+        </handler>
+        
+        <!-- when this object is clicked, make it disappear -->
+        <handler on="mousedown">
+            self.disappear()
+        </handler>
+        
+        <!-- get new data and animate to a new xy -->
+        <method name="regen">
+            disp.over = range(random.randint(1,20))
+            self.animate('x', random.randint(0, canvas.width-100), 0.3)
+            self.animate('y', random.randint(0, canvas.height-100), 0.3)
+        </method>
+        
+        <!-- make the object go away -->
+        <method name="disappear">
+            self.focusable = False
+            self.animate('opacity', 0, 1);
+            self.animate('y', self.y+40, 0.8)
+        </method>
+        
+        <!-- make the object come back -->
+        <method name="appear">
+            self.focusable = True
+            self.animate('opacity', 0.5, 1)
+        </method>
+        
+        <!-- the actual data displayed -->
+        <simplelayout axis="y"/>
+        
+        <rect bgcolor="green" image="canvas.ducks"/>
+        
+        <!-- replicate a bunch of entries to test -->
+        <replicate name="disp">
+            <label focusable="False" text="${self.data->'Entry: %s'%self.data}"/>
+        </replicate>
+    </class>
+    
+    <!-- make a little thing to display info and make the listers reappaear -->
+    <view name="debug" bgcolor="red" opacity="0.7">
+        <handler on="mousedown">
+            [x.appear() for x in canvas.listerContainer.childViews]
+        </handler>
+        
+        <simplelayout axis="y"/>
+        <label name="d1" text="debug"/>
+        <label name="d2" text="Click to restore lists"/>
+    </view>
+        
+    <!-- make four instances of a lister to play with -->
+    <rect sizing="off" name="listerContainer">
+        <lister/>
+        <lister/>
+        <lister/>
+        <lister/>
+    </rect>
+    
+</canvas>
+
+
+
+

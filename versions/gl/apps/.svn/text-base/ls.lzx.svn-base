@@ -1,0 +1,91 @@
+<canvas import="os">
+    
+    <!-- include the standard library -->
+    <import name="builtins" src="builtins"/>
+    
+    <!-- load a font to use -->
+    <font name="monaco" face="monaco" size="16"/>
+    
+    <!-- load the background -->
+    <image name="metal" src="apps/images/brushedMetal1.jpg"/>
+    <rect image="canvas.metal"/>
+    
+    <!-- class to display a file listing -->
+    <class name="filelist">
+        <attribute name="path" type="string" value="."/>
+        <simplelayout name="simplelayout" axis="y" spacing="2"/>
+        <replicate name="repl" over="${parent.path->os.listdir(parent.path)}">
+            <myrow width="200"/>
+        </replicate>
+    </class>
+    
+    <!-- class that displays one file -->
+    <class name="myrow">
+        <!-- set this is true/false to enable selected/unselected behaviour -->
+        <attribute name="selected" type="expression" value="False"/>
+        
+        <!-- if selected status changes, reflect it -->
+        <handler on="selected">
+            if self.selected:
+                inspector.animate('opacity', 0.8, 0.1)
+                inspector.animate('x', self.width+10, 0.2)
+                inspector.animate('height', 80, 0.2)
+                field.animate('opacity', 0.2, 0.2)
+                canvas.focused = inspector.field
+            else:
+                field.text = inspector.field.text
+                inspector.animate('opacity', 0, 0.1)
+                inspector.animate('x', 0, 0.2)
+                inspector.animate('height', field.height, 0.2)
+                field.animate('opacity', 1, 0.2)
+        </handler>
+        
+        <handler on="mousedown">
+            #remove previous selection by setting the last selected object's selected attribute to false
+            if parent['lastSelected']:  
+                parent.lastSelected.selected = False
+            
+            #set new selection on self
+            self.selected = True
+            
+            #retain this as the last selection
+            parent.lastSelected = self
+        </handler>
+        
+        <view name="inspector" opacity="0">          
+            <!-- a background for the listing -->
+            <rect name="bg" width="${parent.parent.width}" height="${parent.parent.height}" opacity="0.4" bgcolor="blue"/>
+            
+            <!-- a field we can use to type is and recieve enter key events from -->
+            <field name="field" font="monaco" text="${parent.parent.data}">
+                <handler on="enter">
+                    <![CDATA[
+                        #setup easy access (until this makes it into language)
+                        classroot = parent.parent
+                        classroot.selected = False
+                        
+                        #select the next object in the replication:
+                        layer = classroot.getLayer()
+                        nextObj = classroot.parent.childViews[(layer+1)%(len(classroot.parent.childViews)-1)]
+                        classroot.parent.lastSelected = nextObj
+                        nextObj.selected = True
+                    ]]>
+                </handler>
+            </field>
+        </view>
+        
+        <!-- text label, which will be made focusable according to parent focus -->
+        <label font="monaco" name="field" text="${parent.data}"/>
+    </class>
+    
+    <!-- make a new filelister -->
+    <view x="10" y="10">
+        <draggable/>
+        <simplelayout axis="y"/>
+        <rect bgcolor="blue">
+            <label text="Click to drag" fgcolor="white"/>
+        </rect>
+        <filelist name="container" path="/etc"/>
+    </view>
+    
+</canvas>

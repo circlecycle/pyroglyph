@@ -1,0 +1,17 @@
+K 25
+svn:wc:ra_dav:version-url
+V 23
+/svn/!svn/ver/205/trunk
+END
+hello.lzx
+K 25
+svn:wc:ra_dav:version-url
+V 33
+/svn/!svn/ver/205/trunk/hello.lzx
+END
+run
+K 25
+svn:wc:ra_dav:version-url
+V 27
+/svn/!svn/ver/174/trunk/run
+END

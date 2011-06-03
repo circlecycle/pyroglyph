@@ -1,0 +1,162 @@
+do backing for view zeroback parent <Viewable.Engine.Canvas.Node instance at 0x2572b98>
+do backing for view zero parent <Viewable.Engine.Canvas.Node instance at 0x2572b98>
+do backing for view zerohalfback parent <Viewable.Engine.Canvas.Node instance at 0x2572b98>
+do backing for view zerohalfback parent <Viewable.Engine.Canvas.Node instance at 0x2572b98>
+do backing for view one parent <Viewable.Engine.Canvas.Node instance at 0x2572b98>
+do backing for view two parent <Viewable.Engine.Classes.view instance at 0x25af210>
+do backing for view three parent <Viewable.Engine.Classes.view instance at 0x25afe40>
+do backing for view four parent <Viewable.Engine.Classes.view instance at 0x25afe40>
+sdfjkhsdf
+<NSInvocation: 0x22d29f0>
+---
+<NSCFTimer: 0x22e4690>
+<CFRunLoop 0x33e350 [0xa019c1a0]>{locked = false, wait port = 0xf03, stopped = false,
+current mode = (none),
+common modes = <CFSet 0x33e380 [0xa019c1a0]>{type = mutable, count = 3, capacity = 3, pairs = (
+	1 : <CFString 0xa0304944 [0xa019c1a0]>{contents = "NSModalPanelRunLoopMode"}
+	2 : <CFString 0xa01a5b40 [0xa019c1a0]>{contents = "kCFRunLoopDefaultMode"}
+	3 : <CFString 0xa0304934 [0xa019c1a0]>{contents = "NSEventTrackingRunLoopMode"}
+)},
+common mode items = <CFSet 0x3b8fb0 [0xa019c1a0]>{type = mutable, count = 14, capacity = 24, pairs = (
+	2 : <CFRunLoopSource 0x2222cf0 [0xa019c1a0]>{locked = No, signalled = No, valid = Yes, order = 0, context = <CFMachPort 0x2222cb0 [0xa019c1a0]>{locked = No, valid = Yes, port = 0x3c03, source = 0x2222cf0, callout = ??? (0x921905c6), context = <CFMachPort context 0x2222b20>}}
+	5 : <CFRunLoopSource 0x2312cd0 [0xa019c1a0]>{locked = No, signalled = No, valid = Yes, order = 0, context = <CFMachPort 0x2312c90 [0xa019c1a0]>{locked = No, valid = Yes, port = 0x4803, source = 0x2312cd0, callout = ??? (0x915a4138), context = <CFMachPort context 0xaed810>}}
+	6 : <CFRunLoopSource 0x1ed0a70 [0xa019c1a0]>{locked = No, signalled = No, valid = Yes, order = 0, context = <MSHRunLoopSource 0x1ed08c0> {port = 5507, callback = 0x0}}
+	8 : <CFRunLoopSource 0x3b8f70 [0xa019c1a0]>{locked = No, signalled = No, valid = Yes, order = 0, context = <CFMachPort 0x3b8d70 [0xa019c1a0]>{locked = No, valid = Yes, port = 0x2207, source = 0x3b8f70, callout = ??? (0x91cbd800), context = <CFMachPort context 0x3b8bd0>}}
+	9 : <CFRunLoopSource 0x2223110 [0xa019c1a0]>{locked = No, signalled = No, valid = Yes, order = 0, context = <CFMachPort 0x22230d0 [0xa019c1a0]>{locked = No, valid = Yes, port = 0x2e07, source = 0x2223110, callout = ??? (0x936d659a), context = <CFMachPort context 0x0>}}
+	10 : <CFRunLoopSource 0x3b8f30 [0xa019c1a0]>{locked = No, signalled = No, valid = Yes, order = -1000, context = <CFMachPort 0x3b8ef0 [0xa019c1a0]>{locked = No, valid = Yes, port = 0x2307, source = 0x3b8f30, callout = ??? (0x91cb8cc0), context = <CFMachPort context 0x0>}}
+	14 : <CFRunLoopObserver 0x22446b0 [0xa019c1a0]>{locked = No, valid = Yes, activities = 0xa0, repeats = Yes, order = 2000000, callout = ??? (0x932d3808), context = <CFRunLoopObserver context 0x0>}
+	15 : <CFRunLoopSource 0x2229270 [0xa019c1a0]>{locked = No, signalled = No, valid = Yes, order = 0, context = <CFRunLoopSource context>{version = 0, info = 0x0, callout = ??? (0x0)}}
+	16 : <CFRunLoopSource 0x22d54b0 [0xa019c1a0]>{locked = No, signalled = No, valid = Yes, order = -5, context = <CFRunLoopSource context>{version = 0, info = 0x0, callout = ??? (0x0)}}
+	21 : <CFRunLoopSource 0x2223000 [0xa019c1a0]>{locked = No, signalled = No, valid = Yes, order = 0, context = <CFMachPort 0x2222fc0 [0xa019c1a0]>{locked = No, valid = Yes, port = 0x2d03, source = 0x2223000, callout = ??? (0x95a5e1a4), context = <CFMachPort context 0x2222fa0>}}
+	24 : <CFRunLoopSource 0x222c8e0 [0xa019c1a0]>{locked = No, signalled = No, valid = Yes, order = 0, context = <MSHRunLoopSource 0x222c8c0> {port = 3e03, callback = 0x0}}
+	28 : <CFRunLoopSource 0x222c930 [0xa019c1a0]>{locked = No, signalled = No, valid = Yes, order = 0, context = <MSHRunLoopSource 0x222c920> {port = 3f03, callback = 0x927538b0}}
+	30 : <CFRunLoopSource 0x22efb70 [0xa019c1a0]>{locked = No, signalled = No, valid = Yes, order = 0, context = <CFMessagePort 0x22dc870 [0xa019c1a0]>{locked = No, valid = Yes, remote = No, name = com.apple.tsm.portname}}
+	31 : <CFRunLoopSource 0x22d32e0 [0xa019c1a0]>{locked = No, signalled = No, valid = Yes, order = 0, context = <CFMachPort 0x22d2d00 [0xa019c1a0]>{locked = No, valid = Yes, port = 0x5a03, source = 0x22d32e0, callout = ??? (0x9156f3a6), context = <CFMachPort context 0x0>}}
+)},
+modes = <CFSet 0x33e3d0 [0xa019c1a0]>{type = mutable, count = 9, capacity = 12, pairs = (
+	0 : <CFRunLoopMode 0x22d2f00 [0xa019c1a0]>{name = AppleEventReplies, locked = false, port set = 0x5b03,
+	sources = <CFSet 0x22d0850 [0xa019c1a0]>{type = mutable, count = 1, capacity = 12, pairs = (
+	15 : <CFRunLoopSource 0x22d32e0 [0xa019c1a0]>{locked = No, signalled = No, valid = Yes, order = 0, context = <CFMachPort 0x22d2d00 [0xa019c1a0]>{locked = No, valid = Yes, port = 0x5a03, source = 0x22d32e0, callout = ??? (0x9156f3a6), context = <CFMachPort context 0x0>}}
+)},
+	observers == (null),
+	timers = (null)
+},
+
+	4 : <CFRunLoopMode 0x22de940 [0xa019c1a0]>{name = EventOnlyMode, locked = false, port set = 0x5803,
+	sources = <CFSet 0x1ed16b0 [0xa019c1a0]>{type = mutable, count = 1, capacity = 12, pairs = (
+	13 : <CFRunLoopSource 0x2229220 [0xa019c1a0]>{locked = No, signalled = No, valid = Yes, order = 0, context = <CFMachPort 0x22291b0 [0xa019c1a0]>{locked = No, valid = Yes, port = 0x3307, source = 0x2229220, callout = ??? (0x95e80bd0), context = <CFMachPort context 0x1824b>}}
+)},
+	observers == (null),
+	timers = (null)
+},
+
+	6 : <CFRunLoopMode 0x2229570 [0xa019c1a0]>{name = NSGraphicsRunLoopMode, locked = false, port set = 0x3d03,
+	sources = <CFSet 0x22295a0 [0xa019c1a0]>{type = mutable, count = 1, capacity = 12, pairs = (
+	13 : <CFRunLoopSource 0x2229220 [0xa019c1a0]>{locked = No, signalled = No, valid = Yes, order = 0, context = <CFMachPort 0x22291b0 [0xa019c1a0]>{locked = No, valid = Yes, port = 0x3307, source = 0x2229220, callout = ??? (0x95e80bd0), context = <CFMachPort context 0x1824b>}}
+)},
+	observers == (null),
+	timers = (null)
+},
+
+	7 : <CFRunLoopMode 0x2223290 [0xa019c1a0]>{name = kDAApprovalRunLoopMode, locked = false, port set = 0x3003,
+	sources = <CFSet 0x2223190 [0xa019c1a0]>{type = mutable, count = 1, capacity = 12, pairs = (
+	5 : <CFRunLoopSource 0x2223000 [0xa019c1a0]>{locked = No, signalled = No, valid = Yes, order = 0, context = <CFMachPort 0x2222fc0 [0xa019c1a0]>{locked = No, valid = Yes, port = 0x2d03, source = 0x2223000, callout = ??? (0x95a5e1a4), context = <CFMachPort context 0x2222fa0>}}
+)},
+	observers == (null),
+	timers = (null)
+},
+
+	8 : <CFRunLoopMode 0x222ca20 [0xa019c1a0]>{name = dockmsg-mode, locked = false, port set = 0x4003,
+	sources = <CFSet 0x222c970 [0xa019c1a0]>{type = mutable, count = 1, capacity = 12, pairs = (
+	8 : <CFRunLoopSource 0x222c8e0 [0xa019c1a0]>{locked = No, signalled = No, valid = Yes, order = 0, context = <MSHRunLoopSource 0x222c8c0> {port = 3e03, callback = 0x0}}
+)},
+	observers == (null),
+	timers = (null)
+},
+
+	9 : <CFRunLoopMode 0x2220ed0 [0xa019c1a0]>{name = NSEventTrackingRunLoopMode, locked = false, port set = 0x2603,
+	sources = <CFSet 0x2220f00 [0xa019c1a0]>{type = mutable, count = 14, capacity = 24, pairs = (
+	2 : <CFRunLoopSource 0x2222cf0 [0xa019c1a0]>{locked = No, signalled = No, valid = Yes, order = 0, context = <CFMachPort 0x2222cb0 [0xa019c1a0]>{locked = No, valid = Yes, port = 0x3c03, source = 0x2222cf0, callout = ??? (0x921905c6), context = <CFMachPort context 0x2222b20>}}
+	4 : <CFRunLoopSource 0x2312cd0 [0xa019c1a0]>{locked = No, signalled = No, valid = Yes, order = 0, context = <CFMachPort 0x2312c90 [0xa019c1a0]>{locked = No, valid = Yes, port = 0x4803, source = 0x2312cd0, callout = ??? (0x915a4138), context = <CFMachPort context 0xaed810>}}
+	6 : <CFRunLoopSource 0x1ed0a70 [0xa019c1a0]>{locked = No, signalled = No, valid = Yes, order = 0, context = <MSHRunLoopSource 0x1ed08c0> {port = 5507, callback = 0x0}}
+	8 : <CFRunLoopSource 0x3b8f70 [0xa019c1a0]>{locked = No, signalled = No, valid = Yes, order = 0, context = <CFMachPort 0x3b8d70 [0xa019c1a0]>{locked = No, valid = Yes, port = 0x2207, source = 0x3b8f70, callout = ??? (0x91cbd800), context = <CFMachPort context 0x3b8bd0>}}
+	9 : <CFRunLoopSource 0x2223110 [0xa019c1a0]>{locked = No, signalled = No, valid = Yes, order = 0, context = <CFMachPort 0x22230d0 [0xa019c1a0]>{locked = No, valid = Yes, port = 0x2e07, source = 0x2223110, callout = ??? (0x936d659a), context = <CFMachPort context 0x0>}}
+	10 : <CFRunLoopSource 0x3b8f30 [0xa019c1a0]>{locked = No, signalled = No, valid = Yes, order = -1000, context = <CFMachPort 0x3b8ef0 [0xa019c1a0]>{locked = No, valid = Yes, port = 0x2307, source = 0x3b8f30, callout = ??? (0x91cb8cc0), context = <CFMachPort context 0x0>}}
+	15 : <CFRunLoopSource 0x22d54b0 [0xa019c1a0]>{locked = No, signalled = No, valid = Yes, order = -5, context = <CFRunLoopSource context>{version = 0, info = 0x0, callout = ??? (0x0)}}
+	16 : <CFRunLoopSource 0x2229270 [0xa019c1a0]>{locked = No, signalled = No, valid = Yes, order = 0, context = <CFRunLoopSource context>{version = 0, info = 0x0, callout = ??? (0x0)}}
+	21 : <CFRunLoopSource 0x2223000 [0xa019c1a0]>{locked = No, signalled = No, valid = Yes, order = 0, context = <CFMachPort 0x2222fc0 [0xa019c1a0]>{locked = No, valid = Yes, port = 0x2d03, source = 0x2223000, callout = ??? (0x95a5e1a4), context = <CFMachPort context 0x2222fa0>}}
+	24 : <CFRunLoopSource 0x222c8e0 [0xa019c1a0]>{locked = No, signalled = No, valid = Yes, order = 0, context = <MSHRunLoopSource 0x222c8c0> {port = 3e03, callback = 0x0}}
+	28 : <CFRunLoopSource 0x222c930 [0xa019c1a0]>{locked = No, signalled = No, valid = Yes, order = 0, context = <MSHRunLoopSource 0x222c920> {port = 3f03, callback = 0x927538b0}}
+	29 : <CFRunLoopSource 0x2229220 [0xa019c1a0]>{locked = No, signalled = No, valid = Yes, order = 0, context = <CFMachPort 0x22291b0 [0xa019c1a0]>{locked = No, valid = Yes, port = 0x3307, source = 0x2229220, callout = ??? (0x95e80bd0), context = <CFMachPort context 0x1824b>}}
+	30 : <CFRunLoopSource 0x22efb70 [0xa019c1a0]>{locked = No, signalled = No, valid = Yes, order = 0, context = <CFMessagePort 0x22dc870 [0xa019c1a0]>{locked = No, valid = Yes, remote = No, name = com.apple.tsm.portname}}
+	31 : <CFRunLoopSource 0x22d32e0 [0xa019c1a0]>{locked = No, signalled = No, valid = Yes, order = 0, context = <CFMachPort 0x22d2d00 [0xa019c1a0]>{locked = No, valid = Yes, port = 0x5a03, source = 0x22d32e0, callout = ??? (0x9156f3a6), context = <CFMachPort context 0x0>}}
+)},
+	observers == <CFSet 0x2223690 [0xa019c1a0]>{type = mutable, count = 1, capacity = 3, pairs = (
+	2 : <CFRunLoopObserver 0x22446b0 [0xa019c1a0]>{locked = No, valid = Yes, activities = 0xa0, repeats = Yes, order = 2000000, callout = ??? (0x932d3808), context = <CFRunLoopObserver context 0x0>}
+)},
+	timers = (null)
+},
+
+	13 : <CFRunLoopMode 0x2220b00 [0xa019c1a0]>{name = NSModalPanelRunLoopMode, locked = false, port set = 0x2503,
+	sources = <CFSet 0x2220e50 [0xa019c1a0]>{type = mutable, count = 14, capacity = 24, pairs = (
+	2 : <CFRunLoopSource 0x2222cf0 [0xa019c1a0]>{locked = No, signalled = No, valid = Yes, order = 0, context = <CFMachPort 0x2222cb0 [0xa019c1a0]>{locked = No, valid = Yes, port = 0x3c03, source = 0x2222cf0, callout = ??? (0x921905c6), context = <CFMachPort context 0x2222b20>}}
+	4 : <CFRunLoopSource 0x2312cd0 [0xa019c1a0]>{locked = No, signalled = No, valid = Yes, order = 0, context = <CFMachPort 0x2312c90 [0xa019c1a0]>{locked = No, valid = Yes, port = 0x4803, source = 0x2312cd0, callout = ??? (0x915a4138), context = <CFMachPort context 0xaed810>}}
+	6 : <CFRunLoopSource 0x1ed0a70 [0xa019c1a0]>{locked = No, signalled = No, valid = Yes, order = 0, context = <MSHRunLoopSource 0x1ed08c0> {port = 5507, callback = 0x0}}
+	8 : <CFRunLoopSource 0x3b8f70 [0xa019c1a0]>{locked = No, signalled = No, valid = Yes, order = 0, context = <CFMachPort 0x3b8d70 [0xa019c1a0]>{locked = No, valid = Yes, port = 0x2207, source = 0x3b8f70, callout = ??? (0x91cbd800), context = <CFMachPort context 0x3b8bd0>}}
+	9 : <CFRunLoopSource 0x2223110 [0xa019c1a0]>{locked = No, signalled = No, valid = Yes, order = 0, context = <CFMachPort 0x22230d0 [0xa019c1a0]>{locked = No, valid = Yes, port = 0x2e07, source = 0x2223110, callout = ??? (0x936d659a), context = <CFMachPort context 0x0>}}
+	10 : <CFRunLoopSource 0x3b8f30 [0xa019c1a0]>{locked = No, signalled = No, valid = Yes, order = -1000, context = <CFMachPort 0x3b8ef0 [0xa019c1a0]>{locked = No, valid = Yes, port = 0x2307, source = 0x3b8f30, callout = ??? (0x91cb8cc0), context = <CFMachPort context 0x0>}}
+	15 : <CFRunLoopSource 0x22d54b0 [0xa019c1a0]>{locked = No, signalled = No, valid = Yes, order = -5, context = <CFRunLoopSource context>{version = 0, info = 0x0, callout = ??? (0x0)}}
+	16 : <CFRunLoopSource 0x2229270 [0xa019c1a0]>{locked = No, signalled = No, valid = Yes, order = 0, context = <CFRunLoopSource context>{version = 0, info = 0x0, callout = ??? (0x0)}}
+	21 : <CFRunLoopSource 0x2223000 [0xa019c1a0]>{locked = No, signalled = No, valid = Yes, order = 0, context = <CFMachPort 0x2222fc0 [0xa019c1a0]>{locked = No, valid = Yes, port = 0x2d03, source = 0x2223000, callout = ??? (0x95a5e1a4), context = <CFMachPort context 0x2222fa0>}}
+	24 : <CFRunLoopSource 0x222c8e0 [0xa019c1a0]>{locked = No, signalled = No, valid = Yes, order = 0, context = <MSHRunLoopSource 0x222c8c0> {port = 3e03, callback = 0x0}}
+	28 : <CFRunLoopSource 0x222c930 [0xa019c1a0]>{locked = No, signalled = No, valid = Yes, order = 0, context = <MSHRunLoopSource 0x222c920> {port = 3f03, callback = 0x927538b0}}
+	29 : <CFRunLoopSource 0x2229220 [0xa019c1a0]>{locked = No, signalled = No, valid = Yes, order = 0, context = <CFMachPort 0x22291b0 [0xa019c1a0]>{locked = No, valid = Yes, port = 0x3307, source = 0x2229220, callout = ??? (0x95e80bd0), context = <CFMachPort context 0x1824b>}}
+	30 : <CFRunLoopSource 0x22efb70 [0xa019c1a0]>{locked = No, signalled = No, valid = Yes, order = 0, context = <CFMessagePort 0x22dc870 [0xa019c1a0]>{locked = No, valid = Yes, remote = No, name = com.apple.tsm.portname}}
+	31 : <CFRunLoopSource 0x22d32e0 [0xa019c1a0]>{locked = No, signalled = No, valid = Yes, order = 0, context = <CFMachPort 0x22d2d00 [0xa019c1a0]>{locked = No, valid = Yes, port = 0x5a03, source = 0x22d32e0, callout = ??? (0x9156f3a6), context = <CFMachPort context 0x0>}}
+)},
+	observers == <CFSet 0x2223600 [0xa019c1a0]>{type = mutable, count = 1, capacity = 3, pairs = (
+	2 : <CFRunLoopObserver 0x22446b0 [0xa019c1a0]>{locked = No, valid = Yes, activities = 0xa0, repeats = Yes, order = 2000000, callout = ??? (0x932d3808), context = <CFRunLoopObserver context 0x0>}
+)},
+	timers = (null)
+},
+
+	14 : <CFRunLoopMode 0x33e450 [0xa019c1a0]>{name = kCFRunLoopDefaultMode, locked = false, port set = 0x1003,
+	sources = <CFSet 0x3b9070 [0xa019c1a0]>{type = mutable, count = 17, capacity = 24, pairs = (
+	2 : <CFRunLoopSource 0x2222cf0 [0xa019c1a0]>{locked = No, signalled = No, valid = Yes, order = 0, context = <CFMachPort 0x2222cb0 [0xa019c1a0]>{locked = No, valid = Yes, port = 0x3c03, source = 0x2222cf0, callout = ??? (0x921905c6), context = <CFMachPort context 0x2222b20>}}
+	4 : <CFRunLoopSource 0x2312cd0 [0xa019c1a0]>{locked = No, signalled = No, valid = Yes, order = 0, context = <CFMachPort 0x2312c90 [0xa019c1a0]>{locked = No, valid = Yes, port = 0x4803, source = 0x2312cd0, callout = ??? (0x915a4138), context = <CFMachPort context 0xaed810>}}
+	6 : <CFRunLoopSource 0x222cbd0 [0xa019c1a0]>{locked = No, signalled = No, valid = Yes, order = 0, context = <CFMachPort 0x222ca90 [0xa019c1a0]>{locked = No, valid = Yes, port = 0x4203, source = 0x222cbd0, callout = ??? (0x921905c6), context = <CFMachPort context 0x222cb80>}}
+	7 : <CFRunLoopSource 0x1ed0a70 [0xa019c1a0]>{locked = No, signalled = No, valid = Yes, order = 0, context = <MSHRunLoopSource 0x1ed08c0> {port = 5507, callback = 0x0}}
+	8 : <CFRunLoopSource 0x3b8f70 [0xa019c1a0]>{locked = No, signalled = No, valid = Yes, order = 0, context = <CFMachPort 0x3b8d70 [0xa019c1a0]>{locked = No, valid = Yes, port = 0x2207, source = 0x3b8f70, callout = ??? (0x91cbd800), context = <CFMachPort context 0x3b8bd0>}}
+	9 : <CFRunLoopSource 0x2223110 [0xa019c1a0]>{locked = No, signalled = No, valid = Yes, order = 0, context = <CFMachPort 0x22230d0 [0xa019c1a0]>{locked = No, valid = Yes, port = 0x2e07, source = 0x2223110, callout = ??? (0x936d659a), context = <CFMachPort context 0x0>}}
+	10 : <CFRunLoopSource 0x3b8f30 [0xa019c1a0]>{locked = No, signalled = No, valid = Yes, order = -1000, context = <CFMachPort 0x3b8ef0 [0xa019c1a0]>{locked = No, valid = Yes, port = 0x2307, source = 0x3b8f30, callout = ??? (0x91cb8cc0), context = <CFMachPort context 0x0>}}
+	11 : <CFRunLoopSource 0x22d8df0 [0xa019c1a0]>{locked = No, signalled = No, valid = Yes, order = 0, context = <CFMachPort 0x2220e90 [0xa019c1a0]>{locked = No, valid = Yes, port = 0x5c03, source = 0x22d8df0, callout = ??? (0x921905c6), context = <CFMachPort context 0x230fdb0>}}
+	15 : <CFRunLoopSource 0x2229270 [0xa019c1a0]>{locked = No, signalled = No, valid = Yes, order = 0, context = <CFRunLoopSource context>{version = 0, info = 0x0, callout = ??? (0x0)}}
+	16 : <CFRunLoopSource 0x22d54b0 [0xa019c1a0]>{locked = No, signalled = No, valid = Yes, order = -5, context = <CFRunLoopSource context>{version = 0, info = 0x0, callout = ??? (0x0)}}
+	19 : <CFRunLoopSource 0x2222ae0 [0xa019c1a0]>{locked = No, signalled = No, valid = Yes, order = 0, context = <CFMessagePort 0x2227bc0 [0xa019c1a0]>{locked = No, valid = Yes, remote = No, name = WakeUpProcessPort}}
+	21 : <CFRunLoopSource 0x2223000 [0xa019c1a0]>{locked = No, signalled = No, valid = Yes, order = 0, context = <CFMachPort 0x2222fc0 [0xa019c1a0]>{locked = No, valid = Yes, port = 0x2d03, source = 0x2223000, callout = ??? (0x95a5e1a4), context = <CFMachPort context 0x2222fa0>}}
+	24 : <CFRunLoopSource 0x222c8e0 [0xa019c1a0]>{locked = No, signalled = No, valid = Yes, order = 0, context = <MSHRunLoopSource 0x222c8c0> {port = 3e03, callback = 0x0}}
+	28 : <CFRunLoopSource 0x222c930 [0xa019c1a0]>{locked = No, signalled = No, valid = Yes, order = 0, context = <MSHRunLoopSource 0x222c920> {port = 3f03, callback = 0x927538b0}}
+	29 : <CFRunLoopSource 0x2229220 [0xa019c1a0]>{locked = No, signalled = No, valid = Yes, order = 0, context = <CFMachPort 0x22291b0 [0xa019c1a0]>{locked = No, valid = Yes, port = 0x3307, source = 0x2229220, callout = ??? (0x95e80bd0), context = <CFMachPort context 0x1824b>}}
+	30 : <CFRunLoopSource 0x22efb70 [0xa019c1a0]>{locked = No, signalled = No, valid = Yes, order = 0, context = <CFMessagePort 0x22dc870 [0xa019c1a0]>{locked = No, valid = Yes, remote = No, name = com.apple.tsm.portname}}
+	31 : <CFRunLoopSource 0x22d32e0 [0xa019c1a0]>{locked = No, signalled = No, valid = Yes, order = 0, context = <CFMachPort 0x22d2d00 [0xa019c1a0]>{locked = No, valid = Yes, port = 0x5a03, source = 0x22d32e0, callout = ??? (0x9156f3a6), context = <CFMachPort context 0x0>}}
+)},
+	observers == <CFSet 0x2223640 [0xa019c1a0]>{type = mutable, count = 1, capacity = 3, pairs = (
+	2 : <CFRunLoopObserver 0x22446b0 [0xa019c1a0]>{locked = No, valid = Yes, activities = 0xa0, repeats = Yes, order = 2000000, callout = ??? (0x932d3808), context = <CFRunLoopObserver context 0x0>}
+)},
+	timers = <CFSet 0x224d700 [0xa019c1a0]>{type = mutable, count = 2, capacity = 3, pairs = (
+	2 : <CFRunLoopTimer 0x224d6b0 [0xa019c1a0]>{locked = No, valid = Yes, interval = 180, next fire date = 237282179, order = 0, callout = ??? (0x919d94a0), context = <CFRunLoopTimer context 0x0>}
+	3 : <CFRunLoopTimer 0x22e4690 [0xa019c1a0]>{locked = No, valid = Yes, interval = 0.016666666, next fire date = 237281999, order = 0, callout = ??? (0x91ddc4c0), context = <CFRunLoopTimer context 0x22e4890>}
+)}
+},
+
+	15 : <CFRunLoopMode 0x22e1630 [0xa019c1a0]>{name = com.apple.hitoolbox.windows.flushmode, locked = false, port set = 0x5903,
+	sources = <CFSet 0x1ec94b0 [0xa019c1a0]>{type = mutable, count = 1, capacity = 12, pairs = (
+	13 : <CFRunLoopSource 0x2229220 [0xa019c1a0]>{locked = No, signalled = No, valid = Yes, order = 0, context = <CFMachPort 0x22291b0 [0xa019c1a0]>{locked = No, valid = Yes, port = 0x3307, source = 0x2229220, callout = ??? (0x95e80bd0), context = <CFMachPort context 0x1824b>}}
+)},
+	observers == (null),
+	timers = (null)
+},
+
+)}}
+
+end

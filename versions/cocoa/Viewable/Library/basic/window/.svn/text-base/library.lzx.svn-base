@@ -1,0 +1,12 @@
+
+<library>
+  
+  <!-- a window resize handle graphic -->
+  <image name="resizeHandle" src="apps/images/resizeHandle.jpg"/>
+  
+  <!-- a single view (so we don't make a class is positioned in the lower right corner -->
+  <view image="parent.resizeHandle"
+         x="${canvas.width->canvas.width-self.width}" y="${canvas.height->canvas.height-self.height}" 
+         width="15" height="15"/>
+         
+</library>

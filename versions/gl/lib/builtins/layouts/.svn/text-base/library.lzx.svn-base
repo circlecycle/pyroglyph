@@ -1,0 +1,74 @@
+
+<library>
+  
+  <!-- lays out sibiling view nodes according to an x,y,or z direction and spacing amt -->
+  <class name="simplelayout" extends="node">
+  
+    <!-- accepts axis and spacing attributes -->
+    <attribute name="axis" type="string" value="y"/>
+    <attribute name="spacing" type="number" value="0"/>
+    <attribute name="force" type="expression" value="False"/>
+  
+    <method name="update" args="val=False">
+      #if there are no child views bounce
+      if not parent.childViews: return
+      
+      #horizontal orientation
+      if self.axis == 'x':
+        parent.childViews[0].x = 0
+        if self.force:  
+          spacing = 0 
+          parent.childViews[0].width = self.spacing
+        else:           
+          spacing = self.spacing
+      
+        x = parent.childViews[0].width + spacing
+      
+        for child in parent.childViews[1:]:
+          child.x = x
+          if self.force:  
+            spacing = 0 
+            child.width = self.spacing
+          else:           
+            spacing = self.spacing
+      
+          x += child.width + spacing
+      
+      #vertical orientation
+      if self.axis == 'y':
+        parent.childViews[0].y = 0
+        if self.force:  
+          spacing = 0 
+          parent.childViews[0].height = self.spacing
+        else:           
+          spacing = self.spacing
+        
+        y = parent.childViews[0].height + spacing
+        
+        for child in parent.childViews[1:]:
+          child.y = y
+          if self.force: 
+            spacing = 0 
+            child.height = self.spacing
+          else:
+            spacing = self.spacing
+          y += child.height + spacing
+
+      
+    </method>
+    
+    <handler on="late" reference="parent">
+      #first update on load of parent
+      self.update(True)
+      
+      #when these change on the parent, redraw
+      parent.constrain(attr='childViews', func=self.update)
+      
+      #when these change on this tag, redraw
+      self.constrain(attr='spacing', func=self.update)
+      self.constrain(attr='axis', func=self.update)
+    </handler>
+  
+  </class>
+
+</library>

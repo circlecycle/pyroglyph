@@ -1,0 +1,31 @@
+<canvas foo="bar" title="Handlers Test">
+  
+  <handler on="init">
+    print "canvas:init"
+  </handler>
+  
+  <handler on="foo" args="val">
+    print "canvas:foo %s"%val
+  </handler>
+  
+  <handler on="init" reference="canvas">
+     print "canvas:init on canvas"
+  </handler>
+  
+  <handler on="mousedown">
+    print "canvas:mouseup"
+  </handler>
+    
+  <view name="someview">
+    <handler on="mousedown" reference="canvas">
+      print "someview:mousedown on canvas"
+    </handler>
+  </view>
+
+  <script>
+    print "should be 'bar'"
+    print canvas.foo
+    print "should see a 'foo was changed to statement'"
+    canvas.foo = "CHANGED!"
+  </script>
+</canvas>

@@ -1,0 +1,16 @@
+<canvas title="Attributes Test">
+  <view name="something">
+    <attribute name="somenumber" type="int" value="100"/>
+    <attribute name="somestring" type="string" value="100"/>
+    <attribute name="someexpr" type="expression" value="4*somenumber"/>
+  </view>
+  
+  <script>
+    print "should be the number 100 (not a string)"
+    print `something.somenumber`
+    print "should be the string 100 (not a number)"
+    print `something.somestring`
+    print "should be the number 400 by expression"
+    print `something.someexpr`
+  </script>
+</canvas>

@@ -1,0 +1,4 @@
+<canvas title="Test Text">
+  <font src="./arial.ttf"/>
+  <text text="hi there"/>
+</canvas>

@@ -1,0 +1,65 @@
+8
+
+dir
+205
+https://pyroglyph.googlecode.com/svn/trunk
+https://pyroglyph.googlecode.com/svn
+
+
+
+2008-08-29T07:37:36.535018Z
+205
+circlecycle
+has-props
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+d932db76-0143-0410-a790-ef44e93a75c3
+
+hello.lzx
+file
+
+
+
+
+2009-06-04T21:08:20.000000Z
+58fe554f18c0f789f18438bd1935e12d
+2008-08-29T07:37:36.535018Z
+205
+circlecycle
+
+apps
+dir
+
+dist
+dir
+
+run
+file
+
+
+
+
+2009-06-04T21:08:20.000000Z
+9739490787495450574a6504d2e0c741
+2008-05-04T00:12:41.132489Z
+174
+circlecycle
+has-props
+
+lib
+dir
+
+bin
+dir
+
